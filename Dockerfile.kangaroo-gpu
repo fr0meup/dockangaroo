@@ -18,7 +18,7 @@ RUN git clone https://github.com/JeanLucPons/Kangaroo.git kangaroo_src && \
     sed -i 's|/usr/local/cuda-8.0|/usr/local/cuda|g' Makefile && \
     sed -i 's|g++-4.8|g++|g' Makefile && \
     make gpu=1 ccap=75 all && \
-    cp kangaroo /app/kangaroo
+    mkdir -p /app/kangaroo && cp kangaroo /app/kangaroo/kangaroo
 
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
